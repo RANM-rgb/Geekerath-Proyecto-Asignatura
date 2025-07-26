@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contáctanos | Geekerath</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+
+    header.encabezado {
+      text-align: left;
+      padding: 20px;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+
+    nav {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #f1c40f;
+    }
+
+    .formulario {
+      padding: 40px 20px;
+      background: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .formulario h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    .formulario form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .formulario input,
+    .formulario textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .formulario button {
+      padding: 10px;
+      background-color: #f1c40f;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer.pie {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+    }
+
+    .redes img {
+      width: 30px;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="encabezado">
+    <a href="index.html"><img src="logo Geekerath.png" alt="Logotipo Geekerath" class="logo" /></a>
+    <nav>
+      <a href="index-Destacados.html">Destacados</a>
+      <a href="index-Nosotros.html">Nosotros</a>
+      <a href="index-marvel.html">Marvel</a>
+      <a href="index-dccomics.html">DC Comics</a>
+      <a href="index-starwars.html">Star Wars</a>
+      <a href="index-Merch.html">Merch</a>
+      <a href="index-Contactanos.html">Contáctanos</a>
+    </nav>
+  </header>
+
+  <section class="formulario" id="contacto">
+    <h2 data-aos="fade-right">¿Tienes dudas? Contáctanos</h2>
+    <form onsubmit="enviarMensaje(event)">
+      <input type="text" placeholder="Tu nombre" required />
+      <input type="email" placeholder="Correo electrónico" required />
+      <textarea placeholder="Escribe tu mensaje aquí..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer class="pie">
+    <p>&copy; 2025 Geekerath - Todos los derechos reservados</p>
+    <div class="redes">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" /></a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>

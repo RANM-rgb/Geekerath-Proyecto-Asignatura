@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ver Pedido | Geekerath</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contenedor-pedido {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border: 2px solid #FFD400;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h2, h3 {
+      text-align: center;
+      color: #0B1D51;
+    }
+    .item-pedido {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .item-info {
+      flex: 1;
+    }
+    .item-controles {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .item-controles input {
+      width: 50px;
+      padding: 0.3rem;
+      text-align: center;
+    }
+    .item-controles button {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+    }
+    .btn-eliminar {
+      background-color: #D72638;
+      color: #fff;
+    }
+    .btn-actualizar {
+      background-color: #0B1D51;
+      color: #fff;
+    }
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+    .btn-privacidad {
+      background-color: #D72638;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 1rem 0;
+      display: inline-block;
+    }
+    #paypal-button-container {
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="encabezado">
+    <a href="index.html"><img src="logo Geekerath.png" alt="Logotipo Geekerath" class="logo" /></a>
+    <nav>
+      <a href="index-Destacados.html">Destacados</a>
+       <a href="index-Nosotros.html">Nosotros</a>
+      <a href="index-marvel.html">Marvel</a>
+      <a href="index-dccomics.html">DC Comics</a>
+      <a href="index-starwars.html">Star Wars</a>
+      <a href="index-Merch.html">Merch</a>
+      <a href="index-Contactanos.html">Contáctanos</a>
+    </nav>
+  </header>
+
+  <div class="contenedor-pedido">
+    <h2>Tu Pedido</h2>
+    <div id="detalle-pedido"></div>
+    <div class="total" id="total-pedido"></div>
+
+    <section id="metodos-pago" style="text-align:center; margin-top: 2rem;">
+      <h3>Métodos de Pago</h3>
+
+      <a href="https://buy.stripe.com/test_1234abcd" class="btn-privacidad" style="background-color:#6772e5;">
+        💳 Pagar con tarjeta (Stripe)
+      </a>
+
+      <div id="paypal-button-container"></div>
+    </section>
+  </div>
+
+  <script>
+    let pedido = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    const contenedor = document.getElementById("detalle-pedido");
+    const totalCont = document.getElementById("total-pedido");
+
+    function renderPedido() {
+      contenedor.innerHTML = "";
+      let total = 0;
+
+      pedido.forEach((item, index) => {
+        total += item.precio * item.cantidad;
+
+        contenedor.innerHTML += `
+          <div class="item-pedido" data-index="${index}">
+            <div class="item-info">
+              <strong>${item.nombre}</strong><br>
+              Precio: $${item.precio.toFixed(2)}<br>
+              Cantidad: <input type="number" min="1" value="${item.cantidad}" class="input-cantidad">
+            </div>
+            <div class="item-controles">
+              <button class="btn-actualizar">Actualizar</button>
+              <button class="btn-eliminar">Eliminar</button>
+            </div>
+          </div>
+        `;
+      });
+
+      totalCont.innerText = `Total: $${total.toFixed(2)} MXN`;
+      localStorage.setItem("carrito", JSON.stringify(pedido));
+      localStorage.setItem("totalCarrito", total.toFixed(2));
+      agregarEventos();
+    }
+
+    function agregarEventos() {
+      document.querySelectorAll(".btn-eliminar").forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          pedido.splice(i, 1);
+          renderPedido();
+        });
+      });
+
+      document.querySelectorAll(".btn-actualizar").forEach((btn, i) => {
+        btn.addEventListener("click", () => {
+          const input = document.querySelectorAll(".input-cantidad")[i];
+          const nuevaCantidad = parseInt(input.value);
+          if (nuevaCantidad > 0) {
+            pedido[i].cantidad = nuevaCantidad;
+            renderPedido();
+          }
+        });
+      });
+    }
+
+    renderPedido();
+  </script>
+
+  <!-- SDK PayPal -->
+  <script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=MXN"></script>
+  <script>
+    paypal.Buttons({
+      createOrder: function(data, actions) {
+        const total = localStorage.getItem("totalCarrito") || "100.00";
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              value: total
+            }
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          alert("Pago aprobado por: " + details.payer.name.given_name);
+        });
+      }
+    }).render("#paypal-button-container");
+  </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros - Geekerath</title>
+  
+  <!-- Fuente llamativa de Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #ffffff, #e3eafc);
+      font-family: 'Roboto', sans-serif;
+      color: #222;
+    }
+
+    header {
+      background: #0B1D51;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3em;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    .encabezado {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0B1D51;
+      padding-bottom: 20px;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin: 10px 0;
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2em;
+      margin-bottom: 20px;
+      color: #0B1D51;
+      text-align: center;
+    }
+
+    p, blockquote {
+      font-size: 1.1em;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    strong {
+      color: #f1c40f;
+    }
+
+    img {
+      width: 100%;
+      max-width: 400px;
+      display: block;
+      margin: 30px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #0B1D51;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9em;
+    }
+
+    blockquote {
+      border-left: 5px solid #f1c40f;
+      padding-left: 15px;
+      font-style: italic;
+      background-color: #fafafa;
+    }
+
+    h4 {
+      margin-top: 25px;
+      color: #333;
+    }
+
+    .volver {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .volver a {
+      color: #0B1D51;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .volver a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="encabezado">
+    <a href="index.html"><img src="logo Geekerath.png" alt="Logotipo Geekerath" class="logo" /></a>
+    <nav>
+      <a href="index-Destacados.html">Destacados</a>
+      <a href="index-Nosotros.html">Nosotros</a>
+      <a href="index-marvel.html">Marvel</a>
+      <a href="index-dccomics.html">DC Comics</a>
+      <a href="index-starwars.html">Star Wars</a>
+      <a href="index-Merch.html">Merch</a>
+      <a href="index-Contactanos.html">Contactanos</a>
+    </nav>
+  </header>
+
+  <section id="quienes-somos">
+    <h2>¿Quiénes Somos?</h2>
+    <p><strong>Misión:</strong> Conectar a los fans de la cultura geek en un espacio creativo y lleno de referencias con las que se identifiquen.</p>
+    <p><strong>Visión:</strong> Ser la marca referente de estilo geek, tanto en contenido como en productos, promoviendo orgullo por lo friki.</p>
+    <p><strong>Valores:</strong> Pasión, creatividad, comunidad, diversidad y autenticidad.</p>
+  </section>
+
+  <section id="nuestra-historia">
+    <h2>Nuestra Historia</h2>
+    <p><em>“La idea de Geekerath nació de una pasión genuina por el universo geek...”</em></p>
+    <p>Por la necesidad de crear un espacio auténtico, donde cada friki pueda sentirse orgullosamente representado. Así nació Geekerath: una marca hecha por geeks, para geeks.</p>
+    
+    <!-- Imagen con clic que lanza frase -->
+    <img src="foto.jpg" alt="Foto de los fundadores" onclick="mostrarFrase()" />
+  </section>
+
+  <section id="reseñas">
+    <h2>Lo que dicen nuestros clientes</h2>
+    <blockquote>
+      "Todos sus productos son de excelente calidad y excelentes precios." — <strong>Karla G.</strong>
+    </blockquote>
+  </section>
+
+  <section id="faq">
+    <h2>Preguntas Frecuentes</h2>
+    <h4>¿Cuánto tarda en llegar?</h4>
+    <p>Entregas en 1 día o hasta una semana dependiendo de tu ubicación.</p>
+    <h4>¿Puedo pedir cuantas figuras quiera?</h4>
+    <p>Sí, puedes combinar todas las franquicias que quieras.</p>
+  </section>
+
+  <!-- Volver a la tienda -->
+  <div class="volver">
+    <p><a href="index.html">← Volver a la tienda</a></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Geekerath - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Frases motivadoras -->
+  <script>
+    function mostrarFrase() {
+      const frases = [
+        "¡Orgullosamente frikis, siempre auténticos!",
+        "El poder geek corre por nuestras venas.",
+        "Cada colección cuenta una historia. ¿Cuál es la tuya?",
+        "Geekerath: Donde lo épico se vuelve realidad.",
+        "No es solo merch, ¡es tu identidad geek!"
+      ];
+      const frase = frases[Math.floor(Math.random() * frases.length)];
+      alert(frase);
+    }
+  </script>
+
+</body>
+</html>
+

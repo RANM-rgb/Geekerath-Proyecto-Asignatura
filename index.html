@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="keywords" content="figuras coleccionables geek, productos Marvel y DC, merchandising Star Wars, colección Funko Pop, tienda geek en línea" />
+  <title>Geekerath</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <style>
+    .encabezado {
+      text-align: left;
+      padding: 20px 0;
+    }
+
+    .logo {
+      width: 200px;
+      height: auto;
+    }
+
+    nav {
+      width: 100%;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #f1c40f;
+    }
+
+    .avatar-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .avatar-container video {
+      width: 250px;
+      height: auto;
+    }
+
+    #carrito {
+      background-color: #fff;
+      padding: 20px;
+      margin: 30px auto;
+      border-radius: 10px;
+      max-width: 600px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    #carrito ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .btn-privacidad {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #f1c40f;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .producto-item {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 300px;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .grilla {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .formulario form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    footer.pie {
+      text-align: center;
+      padding: 20px;
+      background: #000;
+      color: #fff;
+    }
+
+    .redes img {
+      width: 30px;
+      margin: 0 10px;
+    }
+
+    .imagen-centrada {
+      display: block;
+      margin: 20px auto;
+      max-width: 100%;
+    }
+
+    .seccion-centrada {
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="encabezado">
+    <a href="index.html">
+      <img src="logo Geekerath.png" alt="Logotipo Geekerath" class="logo" />
+    </a>
+    <div class="categorias-grid">
+      <nav>
+        <a href="index-Destacados.html">Destacados</a>
+        <a href="index-Nosotros.html">Nosotros</a>
+        <a href="index-marvel.html">Marvel</a>
+        <a href="index-dccomics.html">DC Comics</a>
+        <a href="index-starwars.html">Star Wars</a>
+        <a href="index-Merch.html">Merch</a>
+        <a href="index-Contactanos.html">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="avatar-container">
+    <video autoplay loop playsinline controls>
+      <source src="Avatar IV Video.mp4" type="video/mp4">
+      Tu navegador no soporta la etiqueta de video.
+    </video>
+  </div>
+
+  <section class="hero" data-aos="zoom-in">
+    <h2>¡Empieza tu recorrido!</h2>
+    <p>Ofertas de hasta 50% de descuento</p>
+    <button onclick="verOfertas()">¡Comprar ahora!</button>
+  </section>
+
+  <section class="carrusel-videos" data-aos="fade-up">
+    <h2>Revisa nuestros unboxings e imágenes de nuestros productos</h2>
+    <div class="carrusel-container">
+      <button class="flecha izq" onclick="moverCarrusel(-1)">❮</button>
+      <video id="videoCarrusel" controls autoplay muted loop>
+        <source id="videoSource" src="video1.mp4" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+      </video>
+      <button class="flecha der" onclick="moverCarrusel(1)">❯</button>
+    </div>
+  </section>
+
+  <section id="productos">
+    <h2>Los Más Vendidos</h2>
+    <div class="grilla">
+      <div class="producto" onclick="mostrarModal('Lego eternals.jpg', 'Lego Eternals a la sombra de Arishem.', 'Figura articulada de los Eternals.', '$1,990.00', 'Stock: Disponible')">
+        <img src="Lego eternals.jpg" alt="LEGO Arishem">
+        <p><strong>Lego Eternals a la sombra de Arishem</strong><br>$1,990.00</p>
+      </div>
+      <div class="producto" onclick="mostrarModal('X-MEN.jpg', 'XM Studios X-Men vs Sentinel', 'Diorama de batalla X-Men con Sentinel.', '$30,000.00', 'Stock: Limitado')">
+        <img src="X-MEN.jpg" alt="X-Men vs Sentinel">
+        <p><strong>X-Men vs Sentinel</strong><br>$30,000.00</p>
+      </div>
+      <div class="producto" onclick="mostrarModal('Spiderman Mafex.jpg', 'Spiderman Mafex', 'Figura Mafex edición limitada.', '$5,400.00', 'Stock: Pocas unidades')">
+        <img src="Spiderman Mafex.jpg" alt="Spiderman Mafex">
+        <p><strong>Spiderman Mafex</strong><br>$5,400.00</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="carrito">
+    <h2>🛒 Tu Carrito</h2>
+    <ul id="items-carrito"></ul>
+    <p id="total-carrito">Total: $0.00</p>
+    <button onclick="window.location.href='ver-pedido.html'" class="btn-privacidad">
+      Ver Pedido
+    </button>
+  </section>
+
+  <section class="seccion-centrada">
+    <h2>Bienvenido a Geekerath</h2>
+    <p>Descubre lo mejor del universo geek con figuras, coleccionables y más.</p>
+    <img src="Ofertas Geekerath.png" alt="Colección Geekerath" class="imagen-centrada">
+  </section>
+
+  <footer class="pie">
+    <div class="redes">
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /></a>
+      <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" /></a>
+    </div>
+  </footer>
+
+  <!-- Modal -->//
+  <div id="modalProducto" style="display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 9999;">
+
+    <div style="background: white; padding: 20px; max-width: 400px; border-radius: 10px; text-align: center;">
+      <img id="modalImagen" src="" alt="" style="width: 100%; border-radius: 10px;">
+      <h3 id="modalNombre"></h3>
+      <p id="modalDescripcion"></p>
+      <p id="modalPrecio"></p>
+      <p id="modalStock"></p>
+      <button id="btnAgregarCarrito">Agregar al carrito</button>
+      <br><br>
+      <button onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div
+
+  <section id="ir-checkout">
+    <button onclick="window.location.href='index-Nosotros.html'">Finalizar Compra</button>
+  </section>
+
+  <footer class="pie">
+    <p>&copy; 2025 Geekerath. Todos los derechos reservados.</p>
+    <div style="margin-top: 15px;">
+      <button onclick="window.location.href='aviso-privacidad.html'" class="btn-privacidad">
+        Aviso de Privacidad
+      </button>
+      <button onclick="window.location.href='terminos-condiciones.html'" class="btn-privacidad">
+        Términos y Condiciones
+      </button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function mostrarModal(imagen, nombre, descripcion, precio, stock) {
+      document.getElementById('modalImagen').src = imagen;
+      document.getElementById('modalNombre').textContent = nombre;
+      document.getElementById('modalDescripcion').textContent = descripcion;
+      document.getElementById('modalPrecio').textContent = precio;
+      document.getElementById('modalStock').textContent = stock;
+      document.getElementById('modalProducto').style.display = 'flex';
+    }
+
+    function cerrarModal() {
+      document.getElementById('modalProducto').style.display = 'none';
+    }
+  </script>
+
+  <!-- Chatbot -->
+  <button id="chatbot-btn" style="position: fixed; bottom: 20px; right: 20px; background: #f1c40f; color: #000; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 28px; cursor: pointer; z-index: 10000; box-shadow: 0 0 10px rgba(0,0,0,0.3);">💬</button>
+  <div id="chatbot-window" style="display: none; position: fixed; bottom: 80px; right: 20px; width: 300px; background: #fff; border: 2px solid #f1c40f; border-radius: 10px; z-index: 10000; box-shadow: 0 0 15px rgba(0,0,0,0.3); flex-direction: column;">
+    <div style="background: #f1c40f; padding: 10px; border-top-left-radius: 10px; border-top-right-radius: 10px;">
+      <strong>Asistente Geekerath</strong>
+    </div>
+    <div id="chatbot-messages" style="padding: 10px; height: 200px; overflow-y: auto;">
+      <div style="margin-bottom: 10px;">👋 ¡Hola! ¿En qué puedo ayudarte hoy?</div>
+    </div>
+    <div style="display: flex; border-top: 1px solid #ccc;">
+      <input type="text" id="chatbot-texto" placeholder="Escribe aquí..." style="flex: 1; padding: 10px; border: none; outline: none;">
+      <button onclick="enviarMensaje()" style="padding: 10px; background: #f1c40f; border: none;">Enviar</button>
+    </div>
+  </div>
+
+  <script>
+    const btnChat = document.getElementById("chatbot-btn");
+    const ventanaChat = document.getElementById("chatbot-window");
+    const mensajes = document.getElementById("chatbot-messages");
+    const inputTexto = document.getElementById("chatbot-texto");
+
+    btnChat.onclick = () => {
+      ventanaChat.style.display = ventanaChat.style.display === "flex" ? "none" : "flex";
+    };
+
+    function enviarMensaje() {
+      const texto = inputTexto.value.trim();
+      if (!texto) return;
+      const msgUsuario = document.createElement("div");
+      msgUsuario.style.textAlign = "right";
+      msgUsuario.textContent = texto;
+      mensajes.appendChild(msgUsuario);
+
+      setTimeout(() => {
+        const msgBot = document.createElement("div");
+        msgBot.style.marginTop = "10px";
+        msgBot.textContent = responderChat(texto);
+        mensajes.appendChild(msgBot);
+        mensajes.scrollTop = mensajes.scrollHeight;
+      }, 500);
+
+      inputTexto.value = "";
+    }
+
+    function responderChat(pregunta) {
+      const lower = pregunta.toLowerCase();
+      if (lower.includes("envío")) return "📦 Hacemos envíos a todo México.";
+      if (lower.includes("precio")) return "💰 Todos los precios están actualizados en nuestra tienda.";
+      if (lower.includes("horario")) return "🕘 Nuestro horario es de 9am a 7pm, lunes a sábado.";
+      return "🤖 Lo siento, aún estoy aprendiendo. ¿Podrías preguntarlo de otra manera?";
+    }
+  </script>
+
+</body>
+</html>

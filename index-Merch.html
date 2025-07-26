@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Merch | Geekerath</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body.Imagen1 {
+      background: url('fondo-geekerath.PNG') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+    }
+
+    .encabezado {
+      background-color: #0B1D51;
+      padding: 1rem;
+    }
+
+    .contenedor-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 60px;
+    }
+
+    .menu {
+      flex: 1;
+      text-align: center;
+    }
+
+    .menu a {
+      color: #FFD400;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: white;
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .catalogo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .producto-item {
+      width: 220px;
+      border: 2px solid #FFD400;
+      border-radius: 10px;
+      padding: 1rem;
+      background-color: #fff;
+      text-align: center;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .producto-item:hover {
+      transform: scale(1.03);
+    }
+
+    .producto-item img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    .producto-item h4 {
+      font-size: 1rem;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    .producto-item p {
+      margin: 0.3rem 0;
+    }
+
+    .producto-item button {
+      margin-top: 0.5rem;
+      background-color: #D72638;
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .producto-item button:disabled {
+      background-color: #999;
+      cursor: not-allowed;
+    }
+
+    #carrito {
+      background-color: #0B1D51;
+      color: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 2rem auto;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    #carrito h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    #items-carrito {
+      list-style: none;
+      padding: 0;
+    }
+
+    .btn-ver-pedido {
+      margin-top: 1rem;
+      background-color: #FFD400;
+      color: #000;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+
+<body class="fondo-geekerath">
+  <header class="encabezado">
+    <div class="contenedor-header">
+      <a href="index.html">
+        <img src="logo Geekerath.png" alt="Logotipo Geekerath" class="logo" />
+      </a>
+      <nav class="menu">
+        <a href="index-Destacados.html">Destacados</a>
+        <a href="index-Nosotros.html">Nosotros</a>
+        <a href="index-marvel.html">Marvel</a>
+        <a href="index-dccomics.html">DC Comics</a>
+        <a href="index-starwars.html">Star Wars</a>
+        <a href="index-Merch.html">Merch</a>
+        <a href="index-Contactanos.html">Contáctanos</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="main-content">
+    <h2>Catálogo Merch</h2>
+    <section id="lista-productos" class="catalogo"></section>
+  </div>
+
+  <section id="carrito">
+    <h2>🛒 Tu Carrito</h2>
+    <ul id="items-carrito"></ul>
+    <p id="total-carrito">Total: $0.00</p>
+    <button onclick="window.location.href='ver-pedido.html'" class="btn-ver-pedido">Ver Pedido</button>
+  </section>
+
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      mostrarCategoria("Mercancia");
+      actualizarCarritoEnPantalla();
+    });
+  </script>
+</body>
+</html>
